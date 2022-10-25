@@ -1,0 +1,45 @@
+
+
+<ion-content>
+  <form [formGroup]="nuevaClase" (ngSubmit)="registrarClase()">
+    <ion-card>    
+      <ion-item>
+        <ion-label position="stacked">ID</ion-label>
+        <ion-input formControlName="id_clase" type="text" placeholder="ingrese id"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="ingrese nombre" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Sigla</ion-label>
+        <ion-input  formControlName="sigla"  type="text" placeholder="ingrese sigla" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Profesor</ion-label>
+        
+        <ion-select formControlName="profesor">
+          <ion-select-option *ngFor="let p of profesores" value="{{p.rut}}">{{p.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+     
+      
+  
+      <ion-button type="submit" expand="full">Registrar</ion-button>
+     <ion-button (click)="modificar()" expand="full">Modificar</ion-button>
+      <ion-button (click)="limpiar()"expand="full" type="reset">LIMPIAR</ion-button> 
+    </ion-card>
+  </form>
+    <h1>Informacion Clases</h1>
+    <ion-list *ngFor="let p of clases">
+      <ion-item (click)="buscar(p.id_clase)"> 
+        <p>ID: {{p.id_clase}} - Nombre clase: {{p.nombre}}</p>
+       <ion-button (click)="eliminarClase(p.id_clase)">Eliminar</ion-button>
+      </ion-item> 
+    </ion-list>
+  
+  
+  
+  </ion-content>
+  

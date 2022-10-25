@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Volver</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <div class="imagen_duoc">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/1024px-Logo_DuocUC.svg.png"
+      alt="Logo_DuocUC">
+  </div>
+  <ion-card class="form">
+
+    <ion-item >
+      <ion-label position="stacked">Correo</ion-label>
+      <ion-input placeholder="Ingrese correo" type="email" [(ngModel)]="correo"></ion-input>
+    </ion-item>
+    <!--El comando .include('cadena'): busca que un texto contenga la cadena de texto indicada...
+      El disabled deshabilita el boton cuando el correo no incluye la cadena de texto: @duocuc.cl -->
+    <ion-button expand="block" (click)="recuperar()" [disabled]="!correo.includes('@duocuc.cl')">Recuperar</ion-button>
+  </ion-card>
+
+</ion-content>

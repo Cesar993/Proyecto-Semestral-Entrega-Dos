@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-card>
+
+    <h1>INICIAR CLASE</h1>
+    <div class="qr">
+      <ngx-qrcode [elementType]="elementType" [value]="value"></ngx-qrcode>
+    </div>
+    <div>
+      <ion-input placeholder="Codigo para tomar la clase" [(ngModel)]="value" disabled="true" class="centrar">
+      </ion-input>
+    </div>
+    <ion-list *ngFor="let p of clases">
+      <ion-item >
+        <p> Nombre: {{p.nombre}} Id: {{p.id_clase}} Sigla: {{p.sigla}}</p>
+        <ion-button (click)="registrarAsistencia(p.id_clase)">Generar Asistencia</ion-button>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" fill="clear" shape="round"> </ion-button>
+
+
+  </ion-card>

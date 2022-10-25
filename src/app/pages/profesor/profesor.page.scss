@@ -1,0 +1,35 @@
+ion-toolbar{
+    --background: linear-gradient(#acb0ec, #ffffff);
+    text-align: center;
+}
+
+ion-content {
+    --background: linear-gradient(#acb0ec, #ffffff);
+}
+
+ion-card {
+
+    --color: #000000;
+    --background: linear-gradient(#acb0ec, #ffffff);
+    margin: 0 auto;
+    top: 5vh;
+    height: 90%; 
+    width: 50vw;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.qr{
+    height: 200px;
+    background-color: #acb0ec;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.centrar{
+    text-align: center;
+    line-height: 100%;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}

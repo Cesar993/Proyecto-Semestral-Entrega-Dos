@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  
+
+      <ion-card>    
+        <form [formGroup]="usuario" (ngSubmit)="registrar()">
+          <ion-card>    
+            <ion-item>
+              <ion-label position="stacked">Rut</ion-label>
+              <ion-input formControlName="rut" type="text" placeholder="ingrese rut"></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label position="stacked">Nombre</ion-label>
+              <ion-input formControlName="nombre" type="text" placeholder="ingrese nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Apellido</ion-label>
+              <ion-input  formControlName="ap_paterno"  type="text" placeholder="ingrese apellido"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Fecha nacimiento</ion-label>
+              <ion-input    formControlName="fecha_nac" id="fecha_nac" type="date">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Correo</ion-label>
+              <ion-input   formControlName="correo" id="correo" type="text" placeholder="Ingrese correo"></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label position="stacked">Tipo usuario</ion-label>
+              <ion-input formControlName="tipo_usuario" placeholder="Alumno" disabled>
+              </ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label position="stacked">Clave</ion-label>
+              <ion-input formControlName="clave" id="clave" type="password" placeholder="Ingrese clave"></ion-input>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label position="stacked">Repetir Clave</ion-label>
+              <ion-input [(ngModel)]="repetir_clave" [ngModelOptions]="{standalone: true}" id="repetir_clave" type="password"
+                placeholder="Ingrese clave nuevamente"></ion-input>
+            </ion-item>
+        
+            <ion-button type="submit" expand="full">Registrar</ion-button>
+           
+            <ion-button (click)="limpiar()"expand="full" type="reset">LIMPIAR</ion-button>
+          </ion-card>
+        </form>
+      </ion-card>
+
+</ion-content>

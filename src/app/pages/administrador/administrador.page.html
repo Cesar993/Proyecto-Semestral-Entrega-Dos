@@ -1,0 +1,88 @@
+<ion-content>
+  <div class="fondo">
+  <div class="imagen_duoc">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/1024px-Logo_DuocUC.svg.png"
+      alt="Logo_DuocUC">
+  </div>
+  
+
+  <form [formGroup]="usuario" (ngSubmit)="registrar()">
+    <ion-card>
+      <ion-item>
+        <ion-label position="stacked">Rut</ion-label>
+        <ion-input formControlName="rut" id="rut" type="text" placeholder="Ingrese rut"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="nombre" id="nombre" type="text" placeholder="Ingrese nombre"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Apellido</ion-label>
+        <ion-input formControlName="ap_paterno" id="ap_paterno" type="text" placeholder="Ingrese apellido paterno">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fecha nacimiento</ion-label>
+        <ion-input formControlName="fecha_nac" id="fecha_nac" type="date">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input formControlName="correo" id="correo" type="email" placeholder="Ingrese correo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Tipo usuario</ion-label>
+        <ion-select placeholder="Selecciona tipo" formControlName="tipo_usuario">
+          <ion-select-option value="administrador">Administrador</ion-select-option>
+          <ion-select-option value="alumno">Alumno</ion-select-option>
+          <ion-select-option value="profesor">PROFESOR</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Clave</ion-label>
+        <ion-input formControlName="clave" id="clave" type="password" placeholder="Ingrese clave"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Repetir Clave</ion-label>
+        <ion-input [(ngModel)]="repetir_clave" [ngModelOptions]="{standalone: true}" id="repetir_clave" type="password"
+          placeholder="Ingrese clave nuevamente"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" type="submit" [disabled]="!usuario.valid">REGISTRAR</ion-button>
+      <ion-button expand="full" (click)="modificar()" color="warning">MODIFICAR</ion-button>
+      <ion-button expand="full" type="reset" color="terciary">LIMPIAR</ion-button>
+    </ion-card>
+  </form>
+ <form>
+  <h1>Lista de usuarios</h1>
+  <div *ngIf="usuarios.length != 0; else elseBlock" class="block2">
+    <ion-list *ngFor="let u of usuarios">
+      <ion-card>
+        <ion-item>
+          <ion-card-header>
+            <ion-card-title>{{u.nombre + ' ' + u.ap_paterno}}</ion-card-title>
+            <ion-card-subtitle>{{u.rut}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-button slot="end" color="warning" (click)="buscar(u.rut)">Buscar</ion-button>
+          <ion-button slot="end" color="danger" (click)="eliminar(u.rut)">Eliminar</ion-button>
+        </ion-item>
+        <ion-card-content>
+          {{u.tipo_usuario}}
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+  <ng-template #elseBlock>
+    <p>No existen usuarios</p>
+  </ng-template>
+</form>
+</div>
+</ion-content>

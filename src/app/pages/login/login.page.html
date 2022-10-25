@@ -1,0 +1,33 @@
+
+
+<ion-content [fullscreen]="true">
+  <div class="fondo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/1024px-Logo_DuocUC.svg.png" alt="Logo_DuocUC">
+    <form [formGroup]="usuario" (ngSubmit)="ingresar()">
+    <ion-card>
+      <ion-card-header>
+        <ion-title>LOGIN</ion-title>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- usuario -->
+        <ion-item >
+          <ion-label position="stacked" >Correo</ion-label>
+          <ion-input formControlName="correo" type="text" placeholder="Ingrese correo"></ion-input>
+        </ion-item>
+        <!-- contrasenia -->
+        <ion-item>
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input formControlName="clave" type="password" placeholder="Ingrese clave"></ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="undefined" color="light" shape="round" [disabled]="!usuario.valid">Ingresar</ion-button>
+      </ion-card-content>
+      <ion-item class="reg">
+        <a routerLink="/registro">Registrar usuario</a>
+      </ion-item>
+      <ion-item>
+        <a routerLink="/recuperar">Recuperar contraseña</a>
+      </ion-item>
+    </ion-card>
+  </form>
+</div>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CODIGO QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+  <!--   <div class="qr">
+    <ngx-qrcode [elementType]="elementType" [value]="value" ></ngx-qrcode >
+    </div>
+    <div>  
+    <ion-input placeholder="Codigo para tomar la clase" [(ngModel)]="value" disabled="true"  class="centrar" ></ion-input>
+    </div>  
+ 
+    <ion-list *ngFor="let p of clases">
+      <ion-item >
+        <p> {{p.nombre}} Id: {{p.id_clase}} Sigla: {{p.sigla}}</p>
+        <ion-button (click)="generarCodigo(p.id_clase+p.nombre+p.sigla+obtenerDia())">SELECCIONAR</ion-button>
+      </ion-item>
+       <ion-item>
+        <ion-label>Fecha Hoy</ion-label>
+        <ion-button (click)="obtenerDia()">SELECCIONAR</ion-button>
+      </ion-item> 
+    </ion-list>
+  </ion-card>
+</ion-content>
+
+<ion-content>
+  <ion-card>
+-->
+    <h1>INICIAR CLASE</h1>
+    <ion-list *ngFor="let p of clases">
+      <ion-item>
+        <p> Nombre: {{p.nombre}} Id: {{p.id_clase}} Sigla: {{p.sigla}}</p>
+        
+      </ion-item>
+    </ion-list>
+    
+
+
+  </ion-card>
+</ion-content>
+

@@ -1,0 +1,42 @@
+<ion-content>
+    <ion-card>
+        <ion-list>
+            <ion-item>
+                <ion-label></ion-label>
+                <ion-item *ngIf="usuario.tipo_usuario == 'administrador'" >
+                    <ion-img  src="\assets\adm.png" class="img"></ion-img>
+                </ion-item>
+                <ion-item *ngIf="usuario.tipo_usuario == 'profesor'">
+                    <ion-img  src="\assets\profesor.png" class="img"></ion-img>
+                </ion-item>
+                <ion-item *ngIf="usuario.tipo_usuario == 'alumno'">
+                    <ion-img  src="\assets\alumno.png" class="img"></ion-img>
+                </ion-item>
+            </ion-item>
+            <ion-item>
+                <ion-label>Rut:</ion-label>
+                <h1> {{usuario.rut}}</h1>
+            </ion-item>
+            <ion-item>
+                <ion-label>Nombre: </ion-label>
+                <h1>{{usuario.nombre}}</h1>
+            </ion-item>
+            <ion-item>
+                <ion-label>Apellido</ion-label>
+                <h1>{{usuario.ap_paterno}}</h1>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Correo</ion-label>
+                <h1>{{usuario.correo}}</h1>
+            </ion-item>
+
+
+        </ion-list>
+
+
+
+
+    </ion-card>
+
+</ion-content>

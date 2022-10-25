@@ -1,0 +1,80 @@
+
+
+<ion-content>
+  <form [formGroup]="usuario" (ngSubmit)="registrar()">
+    <ion-card>    
+      <ion-item>
+        <ion-label position="stacked">Rut</ion-label>
+        <ion-input formControlName="rut" type="text" placeholder="ingrese rut"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="ingrese nombre" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Apellido</ion-label>
+        <ion-input  formControlName="ap_paterno"  type="text" placeholder="ingrese apellido" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fecha nacimiento</ion-label>
+        <ion-input    formControlName="fecha_nac" id="fecha_nac" type="date">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input   formControlName="correo" id="correo" type="text" placeholder="Ingrese correo"></ion-input>
+      </ion-item>
+  
+      <ion-item >
+        <ion-label position="stacked">Tipo usuario</ion-label>
+        <ion-select id="tipousu" formControlName="tipo_usuario" placeholder="Selecciona tipo" [(ngModel)]="valorSelec">
+          <ion-select-option id="admin" value="administrador">Administrador</ion-select-option>
+          <ion-select-option id="alumno" value="alumno" ng-model="alumno">Alumno</ion-select-option>
+          <ion-select-option id="profesor" value="profesor" ng-model="profe">Profesor</ion-select-option>
+        </ion-select>
+      </ion-item>
+  
+      <div *ngIf="valorSelec == 'alumno'">
+        <ion-item >
+          <ion-label position="stacked">Semestre</ion-label>
+          <ion-input formControlName="semestre" id="semestre" type="number" placeholder="Ingrese semestre"></ion-input>
+        </ion-item>
+      </div>
+  
+      <div *ngIf="valorSelec == 'profesor'">
+        <ion-item >
+          <ion-label position="stacked">Carrera</ion-label>
+          <ion-input formControlName="carrera" id="carrera" type="text" placeholder="Ingrese carrera"></ion-input>
+        </ion-item>
+      </div>
+  
+      <ion-item>
+        <ion-label position="stacked">Clave</ion-label>
+        <ion-input formControlName="clave" id="clave" type="password" placeholder="Ingrese clave"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="stacked">Repetir Clave</ion-label>
+        <ion-input [(ngModel)]="repetir_clave" [ngModelOptions]="{standalone: true}" id="repetir_clave" type="password"
+          placeholder="Ingrese clave nuevamente"></ion-input>
+      </ion-item>
+  
+      <ion-button type="submit" expand="full">Registrar</ion-button>
+      <ion-button (click)="modificar()" expand="full">Modificar</ion-button>
+      <ion-button (click)="limpiar()"expand="full" type="reset">LIMPIAR</ion-button>
+    </ion-card>
+  </form>
+  <ion-label><h1>Informacion del registro</h1></ion-label>
+    
+    <ion-list *ngFor="let p of personas">
+      <ion-item (click)="buscar(p.rut)">
+        <p> Nombre: {{p.nombre}} - Rut: {{p.rut}} - Usuario: {{p.tipo_usuario}}</p>
+        <ion-button (click)="eliminar(p.rut)">Eliminar</ion-button>
+      </ion-item>
+    </ion-list>
+  
+  
+  
+  </ion-content>
+  
